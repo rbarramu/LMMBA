@@ -21,6 +21,15 @@ class UsuarioController {
         respond new Usuario(params)
     }
 
+    def login() {
+        if(params.username == "admin" && params.password == "pass"){
+            flash.message = "login succeed"    
+        }else{
+            flash.message = "login failed"
+        }
+        redirect(action: "index")
+    }
+
     @Transactional
     def save(Usuario usuario) {
         if (usuario == null) {
