@@ -1,4 +1,4 @@
-package usuarios
+package proyecto
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
