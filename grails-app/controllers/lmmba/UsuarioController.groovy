@@ -12,14 +12,15 @@ class UsuarioController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        cantidad = Usuario.count(enabled==0)
+        def c=Usuario.countByEnabled("false")
         params.max = Math.min(max ?: 10, 100)
-        respond Usuario.list(params), model:[usuarioInstanceCount: Usuario.count()]
+        respond Usuario.list(params), model:[usuarioInstanceCount: Usuario.count(),usuario: c]
     }
 
     def show(Usuario usuarioInstance) {
         respond usuarioInstance
     }
+
     @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def create() {
         respond new Usuario(params)

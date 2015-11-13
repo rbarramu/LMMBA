@@ -7,7 +7,7 @@
 		<g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
-	<body>
+	<body>    
 		<a href="#list-usuario" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -19,6 +19,10 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
+
+	<g:if test="${usuario}">
+	</g:if>		
+	    <h1>Bienvenido Administrador, tienes ${usuario} usuarios esperando confirmación</h1>
 			<table>
 			<thead>
 					<tr>
@@ -56,6 +60,7 @@
 			<div class="pagination">
 				<g:paginate total="${usuarioInstanceCount ?: 0}" />
 			</div>
+			<g:message action="count" code="${flash.message}" args="${flash.args}" />
 		</div>
 	</body>
 </html>
