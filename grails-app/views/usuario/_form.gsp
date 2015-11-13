@@ -19,7 +19,7 @@
 	<g:textField name="password" required="" value="${usuarioInstance?.password}"/>
 
 </div>
-
+<sec:access expression="hasRole('ROLE_ADMIN')">
 <div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'accountExpired', 'error')} ">
 	<label for="accountExpired">
 		<g:message code="usuario.accountExpired.label" default="Account Expired" />
@@ -55,4 +55,4 @@
 	<g:checkBox name="passwordExpired" value="${usuarioInstance?.passwordExpired}" />
 
 </div>
-
+</sec:access>

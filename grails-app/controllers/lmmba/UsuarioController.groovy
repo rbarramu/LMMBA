@@ -19,12 +19,12 @@ class UsuarioController {
     def show(Usuario usuarioInstance) {
         respond usuarioInstance
     }
-
+    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def create() {
         respond new Usuario(params)
     }
-
     @Transactional
+    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
     def save(Usuario usuarioInstance) {
         if (usuarioInstance == null) {
             notFound()
@@ -37,7 +37,9 @@ class UsuarioController {
         }
 
         usuarioInstance.save flush:true
-
+        Rol aux=Rol.find{authority=='ROLE_USER'}
+        //def asdf=Rol.findById(id:'1')
+        UsuarioRol.create usuarioInstance,aux,true
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])
