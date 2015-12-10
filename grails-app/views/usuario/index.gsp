@@ -36,6 +36,8 @@
 						<g:sortableColumn property="enabled" title="${message(code: 'usuario.enabled.label', default: 'Enabled')}" />
 					
 						<g:sortableColumn property="passwordExpired" title="${message(code: 'usuario.passwordExpired.label', default: 'Password Expired')}" />
+
+						<g:sortableColumn property="titulo" title="${message(code: 'usuario.titulo.label', default: 'Titulo')}" />  <%-- Ojo aca le agrege una casilla a la tabla  --%>
 					
 					</tr>
 				</thead>
@@ -52,6 +54,8 @@
 						<td><g:formatBoolean boolean="${usuarioInstance.enabled}" /></td>
 					
 						<td><g:formatBoolean boolean="${usuarioInstance.passwordExpired}" /></td>
+
+						<td><g:message code="${usuarioInstance.titulo}" /></td> <%-- Ojo aca agrege para que devoliese un titulo, aca use g:message y code --%>
 					
 					</tr>
 				</g:each>

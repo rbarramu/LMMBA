@@ -20,6 +20,17 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'titulo', 'error')} required">
+	<label for="titulo">
+		<g:message code="usuario.titulo.label" default="Titulo" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="titulo" required="" value="${usuarioInstance?.titulo}"/>
+
+</div>   <%-- Simplemente agrege una nueva casilla, basicamente si comparan la de passsword con titulo, solo hay que cambiar
+los nombres de los atributos, basicament es copiar y pegar, ojo ante tienen aque agregar la casilla en el modelo, con el servidor abajo, y editar las funciones correspondientes--%>
+					
+
 <sec:access expression="hasRole('ROLE_ADMIN')">
 
 

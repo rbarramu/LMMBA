@@ -1,19 +1,23 @@
-Estimado usuario para poder ingresar y descargar a la aplicacion e informe 1 primero debe tener una cuenta en https://github.com/
+Estimado usuario para poder ingresar y descargar a la aplicación e informe 1 primero debe tener una cuenta en https://github.com/
 luego debe acceder al siguiente link, https://github.com/rbarramu/LMMBA el cual lo enviara al repositorio donde estos se encuentran.
 
-Para poder clonar el respositorio hay que acceder al siguiente link.
+Para poder clonar el repositorio hay que acceder al siguiente link.
 https://github.com/rbarramu/LMMBA.git
 
 A la esquina inferior derecha, hay una seccion que se llama clon URL, usted se crea un carpeta en su Computador, luego ejecuta el comando git init, de esta manera git sabrá que esa carpeta será usada junto a github, ahora lo que tenemos que hacer es el origin, usando el comando git clone https://github.com/rbarramu/LMMBA.git y se creara una copia del repositorio en tu pc.
 
-La aplicacion es un software el cual ayudara al Laboratorio de Microbiología Molecular y 
-Biotecnología Ambiental, en el manejo de informacion y usuarios, dando una mayor facilidad para el almacenamiento
-y distribucion de archivos, que pueden ser Tesis, documentacion cientifica, publicaciones cientificas, etc, dentro de esta
+En trello https://trello.com/b/ZblF5Rf0/proyecto-fisw-kanban , una pagina web donde se pueden ver los distintos estados del proyecto, usted podrá observar el avance que se lleva.
+
+La aplicación es un software el cual ayudara al Laboratorio de Microbiología Molecular y 
+Biotecnología Ambiental, en el manejo de información y usuarios, dando una mayor facilidad para el almacenamiento
+y distribución de archivos, que pueden ser Tesis, documentación científica, publicaciones científicas, etc, dentro de esta
 comunidad tanto a nivel nacional e internacional.
+
+Hasta ahora esta implementado el login, el registro de usuario, y una vista básica del administrador, dandole la posibilidad de activar o eliminar cuentas. Ademas posee una sección donde le notifica al administrador cuantos usuarios esperan la confirmación.
 
 
 Integrantes 
 
-Pablo Ibarra S.
-Rocio Barramuño
-Rodrigo Cisterna 
+Pablo Ibarra S. pablo.ibarras@alumnos.usm.cl  201173086-0
+Rocio Barramuño rocio.barramuno@alumnos.usm.cl 201173074-7
+Rodrigo Cisterna  rodrigo.cisternas@alumnos.usm.cl 201103014-1
