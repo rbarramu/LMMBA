@@ -6,7 +6,7 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-@Secured(['ROLE_ADMIN'])
+@Secured(['ROLE_USER', 'ROLE_ADMIN'])
 class UsuarioController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -15,6 +15,16 @@ class UsuarioController {
         def c=Usuario.countByEnabled("false")
         params.max = Math.min(max ?: 10, 100)
         respond Usuario.list(params), model:[usuarioInstanceCount: Usuario.count(),usuario: c]
+        
+    }
+
+    def springSecurityService
+    def profile(){
+        def x = springSecurityService.currentUser
+        def y = Cargo_usuario.findByUsuario(x) // Con el findBy buscas en la tabla relacional
+        def z = Cargo.findById(y.cargo.id)  // con esa pillas en tabla que quieres
+
+        render view: 'perfil', model:[usuario: x, cargo: z]  // y lo devuelves como variable   
     }
 
     def show(Usuario usuarioInstance) {

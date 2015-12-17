@@ -6,24 +6,31 @@ class Usuario implements Serializable {
 
 	transient springSecurityService
 
+	
 	String username
 	String password
-	String titulo // Agrege este atributo de ejemplos, revisen boostrap.groovy en la carpeta conf.
+	String nombres 
+	String apellidoPaterno
+	String apellidoMaterno
+	String email
+	String rut
 	boolean enabled 
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
 
-	// Fijense que agrege a la identidad usuario String titulo, para que al moment de crear resiva el atributo
-	Usuario(String username, String password, String titulo, boolean enabled) {
+	Usuario(String username, String password, String nombres, String apellidoPaterno, String apellidoMaterno, 
+		String email, String rut, boolean enabled) {
 		this()
 		this.username = username
 		this.password = password
-		this.titulo = titulo // Agregre la declaracion para agregar titulo
+		this.nombres = nombres
+		this.apellidoPaterno = apellidoPaterno
+		this.apellidoMaterno = apellidoMaterno
+		this.email = email
+		this.rut = rut
 		this.enabled = enabled
 	}
-
-	// La edicione de arriba es muy importante, al igual que editar los usuarios de prueba en boostrap.groovy
 
 	@Override
 	int hashCode() {
@@ -63,7 +70,11 @@ class Usuario implements Serializable {
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+		email unique: true, size: 5..100
+		
 	}
+
+	static hasMany = [areas : Area, cargos : Cargo]
 
 	static mapping = {
 		password column: '`password`'

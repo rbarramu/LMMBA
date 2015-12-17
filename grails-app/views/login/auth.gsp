@@ -1,7 +1,9 @@
 <html>
 <head>
 	<meta name='layout' content='main'/>
+<asset:stylesheet src="bootstrap.min.css"/>
 	<title><g:message code="springSecurity.login.title"/></title>
+	 <asset:stylesheet src="bootstrap.css"/>
 	<style type='text/css' media='screen'>
 	#login {
 		margin: 15px 0px;
@@ -81,19 +83,14 @@
 	#login .inner .chk {
 		height: 12px;
 	}
+
+
+
 	</style>
 </head>
 
 <body>
 
-<div class="nav" role="navigation">
-    <ul>
-        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
-        </li>
-        <li><a class="user" href="../usuario/create"><g:message code="Registrar Usuario"/></a>
-        </li>
-
-</div>
 
 <div id='login'>
 	<div class='inner'>

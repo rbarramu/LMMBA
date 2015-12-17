@@ -1,3 +1,4 @@
+
 import lmmba.*
 class BootStrap {
 
@@ -5,11 +6,40 @@ class BootStrap {
         def usuarioRol= new Rol('ROLE_USER').save(failOnError: true)
         def adminRol= new Rol('ROLE_ADMIN').save(failOnError: true)
 
-        def usuarioUser=new Usuario('user','pass', 'ejemplo', true).save(failOnError: true) // Si se fijan agrege ahora "ejemplo" que seria el atributo titulo
-        def adminUser= new Usuario('goku','dragonball','ejemplo',true).save(failOnError: true)
+        def usuarioUser=new Usuario('user','pass', 'ejemplo', 'barramuno', 'gonzalez', 'r@gmail.com','12345678-1', true).save(failOnError: true) 
+        def adminUser= new Usuario('goku','dragonball','ejemplo','cisterna', 'marin', 'cisterna@gmail.com','87654321-1', true).save(failOnError: true)
 
         UsuarioRol.create usuarioUser,usuarioRol, true
         UsuarioRol.create adminUser,adminRol,true
+
+
+
+//Agrega Nombres de areas a la tabla Area
+        def are1= new Area('Biotecnología Vegetal').save(failOnError:true)
+        def are2= new Area('Compuestos Bioactivos').save(failOnError:true)
+        def are3= new Area('Microbiología').save(failOnError:true)
+        def are4= new Area('Biotecnología Ambiental').save(failOnError:true)
+        def are5= new Area('Otros').save(failOnError:true)
+
+//Agrega Cargos de las personas
+        def cargo1 =new Cargo('Estudiante pregrado').save(failOnError:true)
+        def cargo2 =new Cargo('Estudiante postgrado').save(failOnError:true)
+        def cargo3 =new Cargo('Jefe de Laboratorio').save(failOnError:true)
+        def cargo4 =new Cargo('Trabajador').save(failOnError:true)
+        def cargo5 =new Cargo('Colaborador').save(failOnError:true)
+        def cargo6 =new Cargo('Otros').save(failOnError:true)
+
+//Cuando se cree la tabla Tipo sacar comentarios
+        def tipo1= new Tipo('Revista Científica').save(failOnError:true)
+        def tipo2= new Tipo('Capítulos de Libros').save(failOnError:true)
+        def tipo3= new Tipo('Congreso').save(failOnError:true)
+        def tipo4= new Tipo('Tesis').save(failOnError:true)
+        def tipo5= new Tipo('Otros').save(failOnError:true)
+
+        Cargo_usuario.create cargo4,adminUser,true
+        Cargo_usuario.create cargo4,usuarioUser,true
+
+
     }
     def destroy = {
     }

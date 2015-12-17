@@ -6,6 +6,12 @@ class Categoria {
 
 	String nombreCategoria
 
+	Categoria (String nombreCategoria){
+		this()
+		this.nombreCategoria = nombreCategoria
+
+	}
+
     static constraints = {
     	nombreCategoria()
     }

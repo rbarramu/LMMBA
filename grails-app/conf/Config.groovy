@@ -135,3 +135,16 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':  ['permitAll']
 ]
 
+
+environments {
+    development {
+        uploadFolder = "/home/Documents/pablo/usmbiolab-master/proyectov3.0/files/"
+    }
+    test {
+        uploadFolder = "/home/Documents/pablo/usmbiolab-master/proyectov3.0/files/"
+    }
+    production {
+        uploadFolder = "/home/Documents/pablo/usmbiolab-master/proyectov3.0/files/"
+    }
+}
+

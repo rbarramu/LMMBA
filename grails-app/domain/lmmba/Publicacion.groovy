@@ -6,16 +6,26 @@ class Publicacion {
 	publicacion_usuarios:Publicacion_usuario, categoria_publicacion:Categoria_publicacion]
 
 	String nombrePublicacion
-	Date ano
-	String tipo
+	Date ano = new Date()
 	String autores
 	String revista
+	String contrasena
+	String editorial
+	String isbn
+
+	Publicacion (String nombrePublicacion, Date ano, String autores, String revista, String contrasena,
+		String editorial, String isbn){
+		this()
+		this.nombrePublicacion = nombrePublicacion
+		this.ano = ano
+		this.autores = autores
+		this.revista = revista
+		this.contrasena = contrasena
+		this.editorial = editorial
+		this.isbn = isbn
+	}
+ 
 
     static constraints = {
-    	nombrePublicacion()
-    	ano()
-    	tipo()
-    	autores()
-    	revista()
     }
 }

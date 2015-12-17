@@ -20,16 +20,45 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'titulo', 'error')} required">
-	<label for="titulo">
-		<g:message code="usuario.titulo.label" default="Titulo" />
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'nombres', 'error')} required">
+	<label for="nombres">
+		<g:message code="usuario.nombres.label" default="Nombres" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="titulo" required="" value="${usuarioInstance?.titulo}"/>
+	<g:textField name="nombres" required="" value="${usuarioInstance?.nombres}"/>
 
-</div>   <%-- Simplemente agrege una nueva casilla, basicamente si comparan la de passsword con titulo, solo hay que cambiar
-los nombres de los atributos, basicament es copiar y pegar, ojo ante tienen aque agregar la casilla en el modelo, con el servidor abajo, y editar las funciones correspondientes--%>
-					
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'apellidoPaterno', 'error')} required">
+	<label for="apellidoPaterno">
+		<g:message code="usuario.apellidoPaterno.label" default="Apellido Paterno" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="apellidoPaterno" required="" value="${usuarioInstance?.apellidoPaterno}"/>
+
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'apellidoMaterno', 'error')} required">
+	<label for="apellidoMaterno">
+		<g:message code="usuario.apellidoMaterno.label" default="Apellido Materno" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="apellidoMaterno" required="" value="${usuarioInstance?.apellidoMaterno}"/>
+
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'email', 'error')} required">
+	<label for="email">
+		<g:message code="usuario.email.label" default="Email" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="email" required="" value="${usuarioInstance?.email}"/>
+
+	<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'rut', 'error')} required">
+	<label for="email">
+		<g:message code="usuario.rut.label" default="Rut" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="rut" required="" value="${usuarioInstance?.rut}"/>
+
+<sec:access expression="hasRole('ROLE_USER')">
+
+
+</sec:access>
 
 <sec:access expression="hasRole('ROLE_ADMIN')">
 

@@ -11,7 +11,10 @@
     </style>
 </head>
 <body>
-<sec:link controller="usuario" expression="hasRole('ROLE_ADMIN')">Administrar Usuarios</sec:link>
-<sec:link controller="usuario" expression="hasRole('ROLE_USER')">Manage Employee Information</sec:link>
+<g:if test="${admin}">
+    <h1>Bienvenido Admin, tiene ${admin} usuario bloqueados</h1>
+</g:if>	
+
+
 </body>
 </html>

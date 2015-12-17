@@ -1,19 +1,20 @@
 
 <%@ page import="lmmba.Usuario" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+			<style type='text/css' media='screen'>
+		#list-usuario {
+				margin: 10em 8em 10em 8em;
+			}
+			</style>
 	</head>
 	<body>    
-		<a href="#list-usuario" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+		
 		<div id="list-usuario" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -23,21 +24,25 @@
 	<g:if test="${usuario}">
 	</g:if>		
 	    <h1>Bienvenido Administrador, tienes ${usuario} usuarios esperando confirmación</h1>
-			<table>
+			<table align="center" border=1 cellspacing=0>
 			<thead>
 					<tr>
 					
 						<g:sortableColumn property="username" title="${message(code: 'usuario.username.label', default: 'Username')}" />
+
+						<g:sortableColumn property="nombres" title="${message(code: 'usuario.nombres.label', default: 'Nombres')}" />
+
+						<g:sortableColumn property="apellidoPaterno" title="${message(code: 'usuario.apellidoPaterno.label', default: 'Apellido Paterno')}" />
+
+						<g:sortableColumn property="apellidoMaterno" title="${message(code: 'usuario.apellidoMaterno.label', default: 'Apellido Materno')}" />
+
+						<g:sortableColumn property="email" title="${message(code: 'usuario.email.label', default: 'Email')}" />
 					
-						<g:sortableColumn property="accountExpired" title="${message(code: 'usuario.accountExpired.label', default: 'Account Expired')}" />
-					
-						<g:sortableColumn property="accountLocked" title="${message(code: 'usuario.accountLocked.label', default: 'Account Locked')}" />
 					
 						<g:sortableColumn property="enabled" title="${message(code: 'usuario.enabled.label', default: 'Enabled')}" />
 					
-						<g:sortableColumn property="passwordExpired" title="${message(code: 'usuario.passwordExpired.label', default: 'Password Expired')}" />
 
-						<g:sortableColumn property="titulo" title="${message(code: 'usuario.titulo.label', default: 'Titulo')}" />  <%-- Ojo aca le agrege una casilla a la tabla  --%>
+							
 					
 					</tr>
 				</thead>
@@ -46,16 +51,19 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "username")}</g:link></td>
+
+						<td>${fieldValue(bean: usuarioInstance, field: "nombres")}</td>
+
+						<td>${fieldValue(bean: usuarioInstance, field: "apellidoPaterno")}</td>
+
+						<td>${fieldValue(bean: usuarioInstance, field: "apellidoMaterno")}</td>
+
+						<td>${fieldValue(bean: usuarioInstance, field: "email")}</td>
 					
-						<td><g:formatBoolean boolean="${usuarioInstance.accountExpired}" /></td>
-					
-						<td><g:formatBoolean boolean="${usuarioInstance.accountLocked}" /></td>
 					
 						<td><g:formatBoolean boolean="${usuarioInstance.enabled}" /></td>
 					
-						<td><g:formatBoolean boolean="${usuarioInstance.passwordExpired}" /></td>
-
-						<td><g:message code="${usuarioInstance.titulo}" /></td> <%-- Ojo aca agrege para que devoliese un titulo, aca use g:message y code --%>
+					
 					
 					</tr>
 				</g:each>

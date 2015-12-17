@@ -6,6 +6,13 @@ class Proyecto {
 
 	String nombreProyecto
 
+	Proyecto (String nombreProyecto){
+		this()
+		 this.nombreProyecto = nombreProyecto
+		
+	}
+
+
     static constraints = {
     	nombreProyecto()
     }
