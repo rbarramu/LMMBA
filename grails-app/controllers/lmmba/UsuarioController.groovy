@@ -20,11 +20,58 @@ class UsuarioController {
 
     def springSecurityService
     def profile(){
+
         def x = springSecurityService.currentUser
+
         def y = Cargo_usuario.findByUsuario(x) // Con el findBy buscas en la tabla relacional
         def z = Cargo.findById(y.cargo.id)  // con esa pillas en tabla que quieres
 
-        render view: 'perfil', model:[usuario: x, cargo: z]  // y lo devuelves como variable   
+        def k = Area_usuario.findByUsuario(x)
+        def c = Area.findById(k.area.id)
+
+        render view: 'perfil', model:[usuario: x, cargo: z, area: c]  // y lo devuelves como variable   
+    }
+
+    def buscador(){
+        render view: 'buscar'
+    }
+
+    def search(){
+        def buscar = request.getParameter("buscar")
+        def tipo = request.getParameter("tipo")
+
+        if(buscar.empty) {
+            flash.message = "El campo de texto no puede estar en blanco"
+            render view: 'buscar'
+        }else{
+            if(tipo == 'Archivo'){
+                flash.message = "No implementado"
+                render view: 'buscar'
+
+            }
+            if(tipo == 'Persona'){
+                def c = Usuario.findByNombres(buscar)
+
+                if(c == null) {
+                    flash.message = "Usuario no encontrado"
+                    render view: 'buscar'
+                }else{
+
+                    def y = Cargo_usuario.findByUsuario(c) 
+                    def z = Cargo.findById(y.cargo.id) 
+
+                    def k = Area_usuario.findByUsuario(c)
+                    def h = Area.findById(k.area.id)
+
+                    render view: 'visit', model:[usuario: c, cargo: z, area: h]
+                }
+            }
+            if(tipo == 'Cargo'){
+                flash.message = "No implementado"
+                render view: 'buscar'
+
+            }
+        }
     }
 
     def show(Usuario usuarioInstance) {

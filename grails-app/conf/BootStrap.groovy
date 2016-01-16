@@ -7,7 +7,7 @@ class BootStrap {
         def adminRol= new Rol('ROLE_ADMIN').save(failOnError: true)
 
         def usuarioUser=new Usuario('user','pass', 'ejemplo', 'barramuno', 'gonzalez', 'r@gmail.com','12345678-1', true).save(failOnError: true) 
-        def adminUser= new Usuario('goku','dragonball','ejemplo','cisterna', 'marin', 'cisterna@gmail.com','87654321-1', true).save(failOnError: true)
+        def adminUser= new Usuario('goku','dragonball','goku','cisterna', 'marin', 'cisterna@gmail.com','87654321-1', true).save(failOnError: true)
 
         UsuarioRol.create usuarioUser,usuarioRol, true
         UsuarioRol.create adminUser,adminRol,true
@@ -39,6 +39,8 @@ class BootStrap {
         Cargo_usuario.create cargo4,adminUser,true
         Cargo_usuario.create cargo4,usuarioUser,true
 
+        Area_usuario.create are1,adminUser, true
+        Area_usuario.create are2,usuarioUser, true
 
     }
     def destroy = {

@@ -83,6 +83,12 @@ border-top: 5px solid #999;
         <sec:ifAllGranted roles="ROLE_USER">
 		  <li><g:link controller="usuario" action="profile" ><span class="glyphicon glyphicon-user"></span> Mi perfil </g:link> </li>
 
+
+			</sec:ifAllGranted>
+		 <sec:ifAllGranted roles="ROLE_USER">
+		  <li><g:link controller="usuario" action="buscador" ><span class="glyphicon glyphicon-user"></span> Buscar</g:link> </li>
+
+
 			</sec:ifAllGranted>
 		 <sec:ifAllGranted roles="ROLE_USER">
 		  <li><g:link controller="document" action="list" ><span class="glyphicon glyphicon-user"></span> Subir archivo </g:link> </li>

@@ -32,10 +32,11 @@
 <table align="center" border=1 cellspacing=0 >
 <tr>
 <td><strong>Username</strong></td>
-<td><strong>Nombre completo</strong></td>
+<td><strong>Nombre completo</st	rong></td>
 <td><strong>Email</strong></td>
 <td><strong>Rut</strong></td>
 <td><strong>Cargo</strong></td>
+<td><strong>Area de investigacion</strong></td>
 </tr>
 <tr>
 <td>${usuario.username}</td>
@@ -43,6 +44,7 @@
 <td>${usuario.email}</td>
 <td>${usuario.rut}</td>
 <td>${cargo.nombre}</td>
+<td>${area.nombre}</td>
 
 </tr>
 </table>
