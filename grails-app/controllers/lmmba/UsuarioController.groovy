@@ -49,27 +49,29 @@ class UsuarioController {
                 render view: 'buscar'
 
             }
-            if(tipo == 'Persona'){
-                def c = Usuario.findByNombres(buscar)
+            if(tipo == 'Nombre'){
+                def c = Usuario.findAllByNombres(buscar)
 
                 if(c == null) {
                     flash.message = "Usuario no encontrado"
                     render view: 'buscar'
                 }else{
-
-                    def y = Cargo_usuario.findByUsuario(c) 
-                    def z = Cargo.findById(y.cargo.id) 
-
-                    def k = Area_usuario.findByUsuario(c)
-                    def h = Area.findById(k.area.id)
-
-                    render view: 'visit', model:[usuario: c, cargo: z, area: h]
+                    def d=Usuario.countByNombres(buscar)
+                    params.max = 100
+                    render view: "visit", model:[usuarioInstanceCount: Usuario.count(),usuario: d, usuarioInstanceList: c]
                 }
             }
-            if(tipo == 'Cargo'){
-                flash.message = "No implementado"
-                render view: 'buscar'
+            if(tipo == 'Apellido'){
+                def c = Usuario.findAllByApellidoPaterno(buscar)
 
+                if(c == null) {
+                    flash.message = "Usuario no encontrado"
+                    render view: 'buscar'
+                }else{
+                    def d=Usuario.countByApellidoPaterno(buscar)
+                    params.max = 100
+                    render view: "visit", model:[usuarioInstanceCount: Usuario.count(),usuario: d, usuarioInstanceList: c]
+                }
             }
         }
     }
@@ -97,8 +99,12 @@ class UsuarioController {
 
         usuarioInstance.save flush:true
         Rol aux=Rol.find{authority=='ROLE_USER'}
+        Cargo aux2=Cargo.find{nombre=='Otros'}
+        Area aux3=Area.find{nombre=='Otros'}
         //def asdf=Rol.findById(id:'1')
         UsuarioRol.create usuarioInstance,aux,true
+        Area_usuario.create aux3,usuarioInstance,true
+        Cargo_usuario.create aux2,usuarioInstance,true
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])
@@ -129,8 +135,8 @@ class UsuarioController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Usuario.label', default: 'Usuario'), usuarioInstance.id])
-                redirect usuarioInstance
-            }
+                render view: "perfil"
+            }    
             '*'{ respond usuarioInstance, [status: OK] }
         }
     }

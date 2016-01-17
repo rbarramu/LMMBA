@@ -23,35 +23,48 @@
 <h4>Bienvenido, ${usuario.nombres} ${usuario.apellidoPaterno} !</h4> 
 
 <br> 
-<div style=" text-align: center;">
-<h4> Perfil: </h4> 
+
 </g:if>
-</div>
+
 
 <g:if test="${usuario}">
-<table align="center" border=1 cellspacing=0 >
-<tr>
-<td><strong>Username</strong></td>
-<td><strong>Nombre completo</st	rong></td>
-<td><strong>Email</strong></td>
-<td><strong>Rut</strong></td>
-<td><strong>Cargo</strong></td>
-<td><strong>Area de investigacion</strong></td>
-</tr>
-<tr>
-<td>${usuario.username}</td>
-<td>${usuario.nombres} ${usuario.apellidoPaterno} ${usuario.apellidoMaterno}</td>
-<td>${usuario.email}</td>
-<td>${usuario.rut}</td>
-<td>${cargo.nombre}</td>
-<td>${area.nombre}</td>
 
-</tr>
-</table>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-xs-10">
+      <div class="well panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <!--/col--> 
+            <div class="col-xs-12 col-sm-8">
+              <h2> Mi Perfil </h2>
+              <p><strong>Nombre completo: </strong> ${usuario.nombres} ${usuario.apellidoPaterno} ${usuario.apellidoMaterno} </p>
+              <p><strong>Username: </strong> ${usuario.username} </p>
+              <p><strong>Rut: </strong> ${usuario.rut} </p>
+              <p><strong>Email: </strong> ${usuario.email}</p>
+              <p><strong>Cargo: </strong> ${cargo.nombre}</p>
+              <p><strong>Área de investigación: </strong> ${area.nombre}</p>
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+            <g:link class="edit" action="edit" resource="${usuario}"><button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Edita tu perfil </button> </g:link>
+            </div>
+          </div>
+          <!--/row-->
+        </div>
+        <!--/panel-body-->
+      </div>
+      <!--/panel-->
+    </div>
+    <!--/col--> 
+  </div>
+  <!--/row--> 
+</div>
+<!--/container-->
+
 </g:if>
 
-
-<g:link class="edit" action="edit" resource="${usuario}"> <g:message code="default.button.edit.label" default="Edit" /> </g:link>
 
 	</body>
 

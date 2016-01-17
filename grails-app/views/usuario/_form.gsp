@@ -55,12 +55,6 @@
 	</label>
 	<g:textField name="rut" required="" value="${usuarioInstance?.rut}"/>
 
-	<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'email', 'error')} required">
-	<label for="email">
-		<g:message code="usuario.email.label" default="Email" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="email" required="" value="${usuarioInstance?.email}"/>
 
 <sec:access expression="hasRole('ROLE_USER')">
 

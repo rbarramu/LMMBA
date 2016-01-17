@@ -21,12 +21,14 @@
 	<div class="content scaffold-create" role="main">
 			<h1>Buscar</h1>
 			<g:if test="${flash.message}"><div class="message" role="status">${flash.message}</div></g:if>
-			<g:uploadForm action="Search">
+			<g:uploadForm action="Search" controller = "Usuario">
 				<fieldset class="form">
-                      <input type="text"  name="buscar" /><br>
-                      <input type="radio" name="tipo" value="Archivo" checked> Archivo<br>
-  					  <input type="radio" name="tipo" value="Persona"> Persona<br>
-  					  <input type="radio" name="tipo" value="Cargo"> Cargo 
+                      <input type="text"  name="buscar" />
+                      <select name = "tipo">
+	                      <option value="Archivo" > Archivo</option><br>
+	  					  <option value="Nombre"> Nombre</option><br>
+	  					  <option value="Apellido"> Apellido</option><br>
+	  				 </select>	  
 				</fieldset>
 				<fieldset class="buttons">
 					<g:submitButton name="Search" class="save" value="Buscar" />

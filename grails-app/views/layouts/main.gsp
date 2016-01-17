@@ -149,7 +149,7 @@ border-top: 5px solid #999;
 			
 			<div class="col-xs-6 col-md-6">	
 			<h4>Síguenos en las redes sociales</h4>
-				<a class="btn btn-social-icon btn-sm btn-facebook" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);"><span class="fontawesome fa-facebook"></span></a>
+				<a class="btn btn-social-icon btn-sm btn-facebook" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);"><i class="fa fa-facebook"></i></a>
   				<a class="btn btn-social-icon btn-sm btn-twitter" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);"><i class="fa fa-twitter"></i></a>
   				<a class="btn btn-social-icon btn-sm btn-google-plus" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);"><i class="fa fa-google-plus"></i></a>		
 			
