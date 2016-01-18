@@ -14,6 +14,42 @@
 			</style>
 	</head>
 	<body>
+
+
+		<sec:access expression="hasRole('ROLE_USER')">
+
+
+		<div class="container">
+		  <div class="row">
+		    <div class="col-md-8 col-xs-10">
+		      <div class="well panel panel-default">
+		        <div class="panel-body">
+		          <div class="row">
+		            <!--/col--> 
+		            <div class="col-xs-12 col-sm-8">
+		              <h2> Perfil </h2>
+		              <p><strong>Nombre completo: </strong> ${usuarioInstance?.nombres} ${usuarioInstance?.apellidoPaterno} ${usuarioInstance?.apellidoMaterno} </p>
+		              <p><strong>Username: </strong> ${usuarioInstance?.username} </p>
+		              <p><strong>Email: </strong> ${usuarioInstance?.email}</p>
+		            </div>
+		          </div>
+		          <!--/row-->
+		        </div>
+		        <!--/panel-body-->
+		      </div>
+		      <!--/panel-->
+		    </div>
+		    <!--/col--> 
+		  </div>
+		  <!--/row--> 
+		</div>
+		<!--/container-->
+
+		</sec:access>
+
+
+
+		<sec:access expression="hasRole('ROLE_ADMIN')">
 	
 		<div id="show-usuario" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -69,6 +105,9 @@
 				</g:if>
 			
 			</ol>
+
+
+
 			<g:form url="[resource:usuarioInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
 					<g:link class="edit" action="edit" resource="${usuarioInstance}"> <g:message code="default.button.edit.label" default="Edit" /> </g:link>
@@ -76,5 +115,7 @@
 				</fieldset>
 			</g:form>
 		</div>
+
+		</sec:access>
 	</body>
 </html>
