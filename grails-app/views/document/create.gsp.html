@@ -15,7 +15,8 @@
 			<g:if test="${flash.message}"><div class="message" role="status">${flash.message}</div></g:if>
 			<g:uploadForm action="upload">
 				<fieldset class="form">
-                    <input type="file" name="file" />
+                    <input type="file" name="file" /><br>
+                    <input type ="text" name ="descripcion"/>
 				</fieldset>
 				<fieldset class="buttons">
 					<g:submitButton name="upload" class="save" value="Upload" />
