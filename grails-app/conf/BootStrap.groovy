@@ -6,11 +6,13 @@ class BootStrap {
         def usuarioRol= new Rol('ROLE_USER').save(failOnError: true)
         def adminRol= new Rol('ROLE_ADMIN').save(failOnError: true)
 
-        def usuarioUser=new Usuario('user','pass', 'ejemplo', 'barramuno', 'gonzalez', 'r@gmail.com','12345678-1', true).save(failOnError: true) 
-        def adminUser= new Usuario('goku','dragonball','goku','cisterna', 'marin', 'cisterna@gmail.com','87654321-1', true).save(failOnError: true)
+        def usuarioUser=new Usuario('JuanPerez','juan', 'Juan', 'Perez', '-', 'juan@usm.cl','12345678-1', true).save(failOnError: true) 
+        def usuario=new Usuario('BeatrizCamara','lmmba', 'Beatriz', 'Camara', '-', 'beatriz.camara@usm.cl','12345678-1', true).save(failOnError: true) 
+        def adminUser= new Usuario('admin','admin','Administrador','Administrador', 'Administrador', 'a@a.com','87654321-1', true).save(failOnError: true)
 
         UsuarioRol.create usuarioUser,usuarioRol, true
         UsuarioRol.create adminUser,adminRol,true
+        UsuarioRol.create usuario,usuarioRol, true
 
 
 
@@ -28,6 +30,7 @@ class BootStrap {
         def cargo4 =new Cargo('Trabajador').save(failOnError:true)
         def cargo5 =new Cargo('Colaborador').save(failOnError:true)
         def cargo6 =new Cargo('Otros').save(failOnError:true)
+        def cargo8 =new Cargo('Colaborador Nacional').save(failOnError:true)
 
 //Cuando se cree la tabla Tipo sacar comentarios
         def tipo1= new Tipo('Revista Científica').save(failOnError:true)
@@ -38,9 +41,11 @@ class BootStrap {
 
         Cargo_usuario.create cargo4,adminUser,true
         Cargo_usuario.create cargo4,usuarioUser,true
+        Cargo_usuario.create cargo8,usuario,true
 
         Area_usuario.create are1,adminUser, true
         Area_usuario.create are2,usuarioUser, true
+        Area_usuario.create are4,usuario, true
 
     }
     def destroy = {
